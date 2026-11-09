@@ -1,0 +1,94 @@
+/* Páginas estáticas de Furex (privacidad, borrado de cuenta).
+   Sin fuentes ni recursos de terceros: una página de privacidad que carga
+   fuentes de otro servidor le cuenta a ese servidor quién la lee. */
+
+:root {
+  --fondo: #f3f6f9;
+  --texto: #111827;
+  --texto-2: #334155;
+  --linea: #cbd5e1;
+  --acento: #0e7a47;
+  --aviso-fondo: #fff4cc;
+  --aviso-texto: #4a3b00;
+  --aviso-linea: #b38600;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #12161c;
+    --texto: #eaf0f5;
+    --texto-2: #a6b4c2;
+    --linea: #2a3340;
+    --acento: #21d07a;
+    --aviso-fondo: #3a2f00;
+    --aviso-texto: #ffe58a;
+    --aviso-linea: #ffb800;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main, header, footer {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+header { padding-top: 2rem; }
+main { padding-bottom: 3rem; }
+
+.marca {
+  color: var(--acento);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+h1 { font-size: 2rem; line-height: 1.2; margin: 1.5rem 0 0.25rem; }
+h2 { font-size: 1.3rem; margin: 2.25rem 0 0.5rem; }
+h3 { font-size: 1.05rem; margin: 1.5rem 0 0.25rem; }
+
+p, li { max-width: 65ch; }
+li { margin: 0.35rem 0; }
+
+.fecha { color: var(--texto-2); margin: 0 0 1.5rem; }
+
+a { color: var(--acento); }
+a:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.95rem; }
+th, td { border: 1px solid var(--linea); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+th { color: var(--texto-2); }
+
+.tabla { overflow-x: auto; }
+
+/* Lo que falta por rellenar. Se ve a propósito: `comprobar.mjs` impide publicar
+   mientras quede alguno. */
+.pendiente {
+  background: var(--aviso-fondo);
+  color: var(--aviso-texto);
+  border: 1px solid var(--aviso-linea);
+  border-radius: 4px;
+  padding: 0 0.3em;
+}
+
+footer {
+  border-top: 1px solid var(--linea);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  color: var(--texto-2);
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
